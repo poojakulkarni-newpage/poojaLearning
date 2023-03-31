@@ -16,7 +16,7 @@ jobs:
         
   job2:
     
-    needs: job1
+    
     name: MacOS MAchine
     runs-on: macOS-latest
     
@@ -29,7 +29,7 @@ jobs:
         run: date
         
   job3:
-    needs: job2
+
     name: Windows Machine
     runs-on: windows-latest
     
