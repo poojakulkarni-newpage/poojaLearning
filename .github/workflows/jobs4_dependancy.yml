@@ -15,8 +15,11 @@ jobs:
         run: date
         
   job2:
+    needs: job1
+    
     name: Windows MAchine
     runs-on: macOS-latest
+    
     
     steps:
       - name: checkout
