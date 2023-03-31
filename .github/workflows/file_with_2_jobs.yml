@@ -1,0 +1,25 @@
+name: Workflow - 2 jobs
+
+on: push
+
+jobs:
+  first-ubuntu:
+    name: first-job-ubuntu
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repo ubuntu
+        uses: actions/checkout@v2
+        
+      - name: Print Env ubuntu
+        run: env | sort
+        
+  second-windows:
+    name: second-job-windows
+    runs-on: windows-latest
+    
+    steps:
+      - name: Checkout Repo Windows
+        uses: actions/checkout@v2
+      - name: Print env windows
+        run: "Get-ChildItem Env: | Sort-Object Name"
