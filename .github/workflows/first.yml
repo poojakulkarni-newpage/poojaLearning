@@ -4,10 +4,10 @@ on: push
 
 jobs:
   	job1:
-	name: first job
-	runs-on: ubuntu-latest
-	steps:
-	-name: step one
-	 uses: actions/checkput@v2
-	-name: step two
-	 run: env | sort
+	   name: first job
+	   runs-on: ubuntu-latest
+	   steps:
+	   -name: step one
+	    uses: actions/checkput@v2
+	   -name: step two
+	    run: env | sort
