@@ -3,16 +3,16 @@ name: first
 on: push
 
 jobs:
-  job1:
-    name: first job	
+  ENV-JOB:
+    name: ENV
     runs-on: ubuntu-latest
      
     steps :
-       - name: step one
+       - name: Checkout
          uses: actions/checkout@v3
         
-       - name: step 3
-         run: env
+       - name: print env
+         run: env | sort
        
        
 # name: Octo Organization CI
