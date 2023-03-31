@@ -6,7 +6,6 @@ jobs:
   job1:
     name: Ubuntu Machine
     runs-on: ubuntu-latest
-    needs: job2
     
     steps:
       - name: Checkout
@@ -17,8 +16,8 @@ jobs:
         
   job2:
     
-    
-    name: Windows MAchine
+    needs: job1
+    name: MacOS MAchine
     runs-on: macOS-latest
     
     
@@ -28,4 +27,18 @@ jobs:
         
       - name: print date mac os
         run: date
+        
+  job3:
+    needs: job2
+    name: Windows Machine
+    runs-on: windows-latest
+    
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        
+      - name: print date on windows
+        run: date
+        
+        
     
