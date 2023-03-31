@@ -3,14 +3,15 @@ name: Octo Organization CI
 on: push
 
 jobs:
-  build:
+  job1:
+    name: job one
     runs-on: ubuntu-latest
 
     steps:
       - name: step one
         uses: actions/checkout@v3
 
-      - name: Run a one-line script
+      - name: Run a one-line script 123
         run:  env | sort
 
 
