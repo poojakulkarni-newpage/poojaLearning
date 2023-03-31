@@ -1,13 +1,17 @@
-name: first
+name: Octo Organization CI
 
-on: push
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
 
 jobs:
-  	first-job:
-	   name: first job
-	   runs-on: ubuntu-latest
-	   steps:
-	   -name: step one
-	    uses: actions/checkput@v2
-	   -name: step two
-	    run: env | sort
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run a one-line script
+        run: echo Hello from Octo Organization
