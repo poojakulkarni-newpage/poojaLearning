@@ -1,0 +1,13 @@
+name: jobs4_dependancy
+
+on: [push]
+
+jobs:
+  job1:
+    name: Ubuntu Machine
+    runs-on: ubuntu-latest
+    
+    steps:
+      name: print date - ubuntu
+      run: echo date
+    
