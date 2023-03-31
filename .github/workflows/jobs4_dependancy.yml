@@ -1,6 +1,6 @@
 name: jobs4_dependancy
 
-on: [push]
+on: push
 
 jobs:
   job1:
@@ -8,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      name: print date - ubuntu
-      run: echo date
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: print date - ubuntu
+        run: echo $date
     
