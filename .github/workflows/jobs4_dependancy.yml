@@ -12,5 +12,5 @@ jobs:
         uses: actions/checkout@v2
       
       - name: print date - ubuntu
-        run: echo $date
+        run: $date
     
