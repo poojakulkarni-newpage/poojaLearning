@@ -1,18 +1,36 @@
-name: Octo Organization CI
+name: first
 
 on: push
 
 jobs:
   job1:
-	  runs-on: ubuntu-latest
+    name: first job	
+    runs-on: ubuntu-latest
      
-	  steps:
-	    - name: step one
-	      uses: actions/checkout@v3
+    steps :
+       - name: step one
+         uses: actions/checkout@v3
         
-	    - name: step 3
-	      run: env
+       - name: step 3
+         run: env
        
+       
+# name: Octo Organization CI
+
+# on: push
+
+# jobs:
+#   job1:
+#     name: job one
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: step one
+#         uses: actions/checkout@v3
+
+#       - name: Run a one-line script 123
+#         run: env | sort
+
        
 
 
