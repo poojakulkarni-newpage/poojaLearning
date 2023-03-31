@@ -4,28 +4,17 @@ on: push
 
 jobs:
   job1:
-    name: job one
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: step one
-        uses: actions/checkout@v3
-
-      - name: Run a one-line script 123
-        run:  env | sort
-
-
-# name: first
-
-# on: push
-
-# jobs:
-#   	build:
-# 	   runs-on: ubuntu-latest
+	  runs-on: ubuntu-latest
      
-# 	   steps:
-# 	    - name: step one
-# 	      uses: actions/checkout@v3
-      
-# 	    - name: step two
-# 	      run: env | sort
+	  steps:
+	    - name: step one
+	      uses: actions/checkout@v3
+        
+	    - name: step 3
+	      run: env
+       
+       
+
+
+
+
