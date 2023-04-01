@@ -51,6 +51,4 @@ jobs:
         
       - name: Print date on ubuntu-20.04
         run: date
-        
-        
-    
+  
