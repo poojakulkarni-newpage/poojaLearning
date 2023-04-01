@@ -40,6 +40,16 @@ jobs:
       - name: print date on windows
         run: date
         
+  job4:
+    name: ubuntu-20.04 Machine
+    runs-on: ubuntu-20.04
+    
+    steps:
+      - name: checkout ubuntu-20.04
+        uses: actions/checkout@v2
+        
+      - name: Print date on ubuntu-20.04
+        run: date
         
         
     
