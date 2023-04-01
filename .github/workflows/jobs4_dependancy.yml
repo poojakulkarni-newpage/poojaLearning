@@ -41,6 +41,7 @@ jobs:
         run: date
         
   job4:
+    needs: [job1, job2, job3]
     name: ubuntu-20.04 Machine
     runs-on: ubuntu-20.04
     
