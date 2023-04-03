@@ -16,8 +16,6 @@ jobs:
         
       - name: create file
         uses: finnp/create-file-action@master
-        with:
-          name: ${{ env.artifact_name }} 
      
       - name: upload Artifacts
         uses: actions/upload-artifact@v3.1.2
