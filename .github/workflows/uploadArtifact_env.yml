@@ -1,0 +1,19 @@
+name: uploadArtifact_env
+
+on: [push]
+
+jobs:
+  upload Artifacts:
+    runs-on: ubuntu-latest
+    
+    env: 
+      artifact_name: uploaded_report
+    
+    steps:
+     - name: Checkout The Code
+     - uses: actions/checkout@v2
+     
+     - name: upload Artifacts
+       uses: actions/upload-artifact@v1.0.0
+       with:
+        name: ${{ env.artifact_name }}
