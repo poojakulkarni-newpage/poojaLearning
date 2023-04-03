@@ -3,7 +3,7 @@ name: uploadArtifact_env
 on: [push]
 
 jobs:
-  upload Artifacts:
+  uploadArtifacts:
     runs-on: ubuntu-latest
     
     env: 
