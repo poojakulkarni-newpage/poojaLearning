@@ -19,4 +19,3 @@ jobs:
         uses: actions/upload-artifact@v3.1.2
         with:
           name: ${{ env.artifact_name }}
-          path: .
