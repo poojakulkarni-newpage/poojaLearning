@@ -12,10 +12,8 @@ jobs:
     steps:
       
       - name: Checkout The Code
-        uses: actions/checkout@v2
-        
-      - name: create file
-        uses: finnp/create-file-action@master
+        uses: actions/checkout@v3
+
      
       - name: upload Artifacts
         uses: actions/upload-artifact@v3.1.2
