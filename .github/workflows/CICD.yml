@@ -22,8 +22,8 @@ jobs:
     steps:
       
       - name: Checkout repo 2
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
       
       - name: Upload Artifact
-      - uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3
     
