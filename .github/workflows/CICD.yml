@@ -2,13 +2,16 @@ name: CICD
 
 on: push
 
-Jobs:
+jobs:
 
   Run-Python-Program:
+    runs-on: ubuntu-latest
+    
+    steps:
   
-    - name: Checkout Repo
-      uses: actions@checkout@v3
+      - name: Checkout Repo
+        uses: actions@checkout@v3
       
-    - name: Run Program
-      run: python hello.py
+      - name: Run Program
+        run: python hello.py
     
