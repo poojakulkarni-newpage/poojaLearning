@@ -15,4 +15,15 @@ jobs:
       
       - name: Run Program
         run: python hello.py
+        
+  Upload-Artifact:
+    runs-on: ubuntu-latest
+    
+    steps:
+      
+      - name: Checkout repo 2
+      - uses: actions/checkout@v3
+      
+      - name: Upload Artifact
+      - uses: actions/upload-artifact@v3
     
