@@ -26,4 +26,5 @@ jobs:
       
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
-    
+        with:
+          path: .
