@@ -1,0 +1,14 @@
+name: CICD
+
+on: push
+
+Jobs:
+
+  Run-Python-Program:
+  
+    - name: Checkout Repo
+      uses: actions@checkout@v3
+      
+    - name: Run Program
+      run: python hello.py
+    
