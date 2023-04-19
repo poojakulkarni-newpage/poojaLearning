@@ -1,0 +1,66 @@
+name: API Smoke
+
+
+env:
+    PROXY_PORT: "9090"
+
+on:
+    workflow_dispatch:
+
+    # Runs at 3 AM UTC (1 AM ET) everyday on the main branch
+    schedule:
+      - cron: '0 5 * * *'
+
+jobs:
+  # This workflow contains a single job called "run-auto-tests"
+  API-Smoke:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    steps:
+
+        # Setup Python
+      - name: Setup Python 3.9
+        uses: actions/setup-python@v2.2.1
+        with:
+          python-version: '3.9'
+
+      - name: Setup and run mitmproxy
+        run: |
+                pip install mitmproxy
+                nohup mitmdump -p $PROXY_PORT -H "/cf-access-client-id/${{ secrets.CF_KEY_ID }}" -H "/cf-access-client-secret/${{ secrets.CF_KEY_SECRET }}" &
+
+        # Checkout the latest code from the repo
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+             sh install.sh
+#             python -m pip install --upgrade pip
+#             pip install -r requirements.txt
+
+#      - name: Read the Secrets
+      - name: API regression
+        env:
+          API_URL_STG: ${{ secrets.PFIZER_QUICKAUTH_URL }}
+          QUICKAUTH_CLIENT_ID_UUID_STG: ${{ secrets.QUICKAUTH_CLIENT_ID_UUID_STG }}
+          QUICKAUTH_SECRET_STG: ${{ secrets.QUICKAUTH_SECRET_STG}}
+          NCS_API_URL: ${{ secrets.NCS_API_URL }}
+          PDF_API_URL: ${{ secrets.PDF_API_URL }}
+
+
+      - name: Run TCs
+        run: |
+            source $HOME/.bp-venv/bin/activate
+            pytest -v --tags 'NCS_API' --html=output/reports/ -s
+
+        # Upload html results as GH artifact
+      - name: Upload pytest test results
+        uses: actions/upload-artifact@v2
+        with:
+            name: pytest-results
+            path: |
+                ./*.html
+                ./output/
+        if: ${{ always() }}
