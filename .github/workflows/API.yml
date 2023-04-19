@@ -49,8 +49,6 @@ jobs:
           NCS_API_URL: ${{ secrets.NCS_API_URL }}
           PDF_API_URL: ${{ secrets.PDF_API_URL }}
 
-
-      - name: Run TCs
         run: |
             source $HOME/.bp-venv/bin/activate
             pytest -v --tags 'NCS_API' --html=output/reports/ -s
